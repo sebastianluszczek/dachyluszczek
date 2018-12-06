@@ -1,0 +1,681 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+header {
+    position: relative;
+}
+
+header::after {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/bgi.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    filter: brightness(0.6);
+    z-index: -1;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 2;
+    background-color: #333;
+    border-bottom-left-radius: 10px;
+}
+
+.navigation .socials {
+    display: none;
+}
+
+.navigation a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px;
+}
+
+a:hover {
+    color: orange;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.content img {
+    width: 400px;
+}
+
+h2.text {
+    font-size: 24px;
+    text-transform: none;
+    margin-top: 15px;
+}
+
+.toTopButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    color: #333;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+/* Menu Hamburger */
+
+.hamburger {
+    display: none;
+    width: 50px;
+    height: 42px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 4;
+    transition: 1s;
+}
+
+.hamburger span {
+    display: block;
+    width: 50px;
+    height: 8px;
+    position: absolute;
+    background-color: orange;
+    left: 0;
+    border-radius: 3px;
+    transition: 1s;
+}
+
+.hamburger span:nth-of-type(1) {
+    top: 0;
+}
+
+.hamburger span:nth-of-type(2) {
+    top: 17px;
+    opacity: 1;
+}
+
+.hamburger span:nth-of-type(3) {
+    bottom: 0;
+}
+
+.hamburger.active {
+    right: 190px;
+}
+
+.hamburger.active span:nth-of-type(1) {
+    top: 17px;
+    transform: rotate(-45deg);
+}
+
+.hamburger.active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-of-type(3) {
+    bottom: 17px;
+    transform: rotate(45deg);
+}
+
+
+/* Services */
+
+section.services {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 0;
+    justify-items: center;
+    align-items: center;
+}
+
+.collapsible {
+    padding: 20px 20px 40px;
+    /* border: 1px solid white; */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: 1s;
+}
+
+.collapsible h3 {
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.collContent {
+    max-height: 0;
+    overflow: hidden;
+    grid-row: 2/3;
+    grid-column: 1/5;
+    transition: 0.5s;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    justify-items: center;
+    align-items: center;
+    background-color: #444;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.collContent.active {
+    max-height: 300px;
+}
+
+.collContent .smallImg {
+    overflow: hidden;
+    padding: 20px;
+    width: 350px;
+    background-color: #444;
+}
+
+.collContent .smallImg img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.collContent p {
+    padding: 20px;
+    background-color: #444;
+    text-align: justify;
+    line-height: 150%;
+}
+
+.collapsible.active,
+.collContent.active,
+.collapsible:hover {
+    background-color: #444;
+}
+
+.description {
+    padding: 0 20px;
+}
+
+.description p {
+    background-color: #444;
+    padding: 30px;
+    text-align: justify;
+    border-radius: 10px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* Gallery */
+
+.gallery {
+    background-color: #ddd;
+    color: #333;
+    padding-top: 50px;
+}
+
+.imageWrap {
+    width: 100%;
+    /* height: 300px; */
+    text-align: center;
+    border-radius: 10px;
+}
+
+.imageWrap:hover {
+    background-color: #bbb;
+}
+
+.gallery .imagesWrap {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.imageWrap h4 {
+    padding: 10px 10px 20px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.image {
+    max-width: 90%;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Modal */
+
+.modal {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.modal .modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    /* height: 520px; */
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.modalContent img {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.modal i {
+    text-align: center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    color: orange;
+}
+
+.modal i.fa-times {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    line-height: 40px;
+}
+
+.modal i.fa-angle-left,
+.modal i.fa-angle-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+}
+
+.modal i.fa-angle-left {
+    left: 0;
+}
+
+.modal i.fa-angle-right {
+    right: 0;
+}
+
+.modalContent img {
+    width: 100%;
+}
+
+/* Work */
+
+.work {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.work img {
+    width: 400px;
+    border-radius: 10px;
+}
+
+.jobofert {
+    padding: 40px;
+    line-height: 1.5;
+}
+
+.jobofert ul {
+    padding-left: 30px;
+}
+
+.jobofert h2 {
+    padding: 20px 0 20px;
+}
+
+/* footer */
+
+footer {
+    background-color: #222;
+    padding-top: 50px;
+}
+
+.company {
+    text-align: justify;
+}
+
+.company img {
+    width: 120px;
+}
+
+.company p {
+    padding: 10px 0;
+}
+
+.company a {
+    color: #fff;
+    padding: 10px 0;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+.company a:hover {
+    color: orange;
+}
+
+footer .grid-2 {
+    grid-template-columns: 1fr 3fr;
+}
+
+.contact h2 {
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.owners div {
+    text-align: center;
+}
+
+.owners>div>i {
+    padding: 10px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr;
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.bottombar {
+    border-top: 2px solid #777;
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+@media (max-width: 900px) {
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        right: -200px;
+        transition: 1s;
+    }
+
+    .navigation.active {
+        right: 0;
+    }
+
+    .navigation .socials {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .navigation .socials a {
+        padding: 20px 0px 20px 30px;
+    }
+
+    .navigation a {
+        padding: 10px 30px;
+        font-size: 18px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .gallery .imagesWrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-2 {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .content img {
+        width: 250px;
+    }
+
+    h2.text {
+        font-size: 20px;
+    }
+
+    section.services {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .collapsible {
+        padding: 10px;
+    }
+
+    .collapsible h3 {
+        font-size: 18px;
+    }
+
+    .collContent.active {
+        max-height: 400px;
+    }
+
+    .collContent .smallImg {
+        width: 250px;
+    }
+
+    .gallery {
+        padding-top: 30px;
+    }
+
+    .container {
+        margin-top: 30px;
+    }
+
+    footer {
+        padding-top: 10px;
+    }
+
+    footer .grid-2 {
+        grid-template-columns: auto;
+        grid-row-gap: 30px;
+    }
+
+    .company {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .modal .modalContent {
+        width: 60vw;
+    }
+
+    .modal i.fa-times {
+        top: 5px;
+        right: 5px;
+        line-height: 40px;
+    }
+}
+
+@media (max-width: 560px) {
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        right: -200px;
+        transition: 1s;
+    }
+
+    .navigation.active {
+        right: 0;
+    }
+
+    .navigation a {
+        padding: 15px 30px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .content img {
+        width: 250px;
+    }
+
+    h2.text {
+        font-size: 20px;
+    }
+
+    .grid-4 {
+        display: block;
+    }
+
+    .collapsible {
+        margin-top: 20px;
+    }
+
+    .collContent {
+        display: block;
+    }
+
+    .collContent.active {
+        max-height: 400px;
+    }
+
+    .collContent .smallImg {
+        display: none;
+    }
+
+    .collContent p {
+        padding: 15px;
+        line-height: 140%;
+    }
+
+    .gallery .imagesWrap {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .imageWrap {
+        width: 100%;
+    }
+
+    .imageWrap h4 {
+        padding: 0 0 10px;
+    }
+
+    .image {
+        padding: 20px 10px;
+        margin: 0 auto;
+    }
+
+    .modal .modalContent {
+        width: 300px;
+        height: 200px;
+    }
+
+    .modal i.fa-times {
+        right: 0;
+    }
+
+    h2 {
+        /* margin: 20px; */
+        padding: 0;
+    }
+
+    .work img {
+        display: none;
+    }
+
+    .jobofert {
+        padding: 15px;
+    }
+
+    .work .grid-2 {
+        display: block;
+    }
+
+    footer {
+        padding-top: 20px;
+    }
+
+    footer .grid-2,
+    footer .grid-3 {
+        display: block;
+    }
+
+    footer .company {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .owners>div {
+        padding: 10px 0;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .company {
+        width: 280px;
+        margin: 0 auto;
+    }
+
+}
